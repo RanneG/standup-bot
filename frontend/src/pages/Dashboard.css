@@ -307,6 +307,33 @@
   align-items: center;
   gap: 0.5rem;
   flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .dashboard-tee-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .dashboard-banner-actions {
+    width: 100%;
+    gap: 0.4rem;
+  }
+
+  .dashboard-copy-llm-btn,
+  .dashboard-download-json-btn,
+  .dashboard-clear-btn,
+  .dashboard-complete-btn {
+    flex: 1 1 auto;
+    min-width: calc(50% - 0.2rem);
+    min-height: 36px;
+  }
+
+  .dashboard-clear-cache-btn {
+    min-width: 100%;
+  }
 }
 
 .dashboard-copy-llm-btn {

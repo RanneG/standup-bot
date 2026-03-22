@@ -7,6 +7,7 @@ import { useAuth } from '../context/AuthContext'
 import { fetchAggregates } from '../services/teeService'
 import { getOrCreateUserId, getUserTeam } from '../utils/teamStorage'
 import { getTEEResult, formatTEETimestamp, clearTEEResult } from '../utils/teeResultStorage'
+import { clearAppCache } from '../utils/clearAppCache'
 import { markDeliverableComplete, getCurrentPhaseNumber, getArchivedPhases, getCurrentDeliverableLabel as getStoredDeliverableLabel, removeArchivedDeliverable, createFirstDeliverable } from '../utils/phaseStorage'
 import { buildLLMContext, buildLLMContextJSON } from '../utils/llmContextUtils'
 import {
@@ -102,6 +103,18 @@ export default function Dashboard() {
   const handleClearDashboard = useCallback(() => {
     clearTEEResult()
     setTEEResultState(null)
+  }, [])
+
+  const handleClearCacheAndFreshStart = useCallback(() => {
+    if (
+      !window.confirm(
+        'Clear all app data and start fresh? This removes teams, TEE results, deliverables, and resets to a clean state. Close other tabs with this app first if you have any open.'
+      )
+    ) {
+      return
+    }
+    clearAppCache()
+    window.location.href = '/team'
   }, [])
 
   const handleRemoveArchived = useCallback((ap) => {
@@ -466,7 +479,7 @@ export default function Dashboard() {
               type="button"
               className="dashboard-clear-btn"
               onClick={handleClearDashboard}
-              title="Clear all and start fresh"
+              title="Clear dashboard data"
             >
               Clear all
             </button>
@@ -477,6 +490,14 @@ export default function Dashboard() {
               title="Mark deliverable complete and start a new phase"
             >
               Mark deliverable complete
+            </button>
+            <button
+              type="button"
+              className="dashboard-clear-btn dashboard-clear-cache-btn"
+              onClick={handleClearCacheAndFreshStart}
+              title="Clear all app data and start fresh"
+            >
+              Clear cache & start fresh
             </button>
           </div>
         </div>
@@ -490,9 +511,17 @@ export default function Dashboard() {
               type="button"
               className="dashboard-clear-btn"
               onClick={handleClearDashboard}
-              title="Clear all and start fresh"
+              title="Clear dashboard data"
             >
               Clear all
+            </button>
+            <button
+              type="button"
+              className="dashboard-clear-btn dashboard-clear-cache-btn"
+              onClick={handleClearCacheAndFreshStart}
+              title="Clear all app data and start fresh"
+            >
+              Clear cache & start fresh
             </button>
             <button
               type="button"

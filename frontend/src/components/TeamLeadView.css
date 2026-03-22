@@ -195,6 +195,12 @@
 }
 
 @media (max-width: 640px) {
+  .team-lead-view {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
   .dashboard-with-sidebar {
     flex-direction: column;
     overflow: visible;
