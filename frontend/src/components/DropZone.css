@@ -1,4 +1,5 @@
 .dropzone {
+  position: relative;
   width: 100%;
   min-height: 12rem;
   border: 2px dashed var(--border);
