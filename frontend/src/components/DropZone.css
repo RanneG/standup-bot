@@ -13,6 +13,18 @@
   transition: border-color 0.2s, background 0.2s;
 }
 
+@media (max-width: 480px) {
+  .dropzone {
+    min-height: 10rem;
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  .dropzone-text {
+    font-size: 0.875rem;
+  }
+}
+
 .dropzone--drag {
   border-color: var(--accent);
   background: var(--accent-dim);

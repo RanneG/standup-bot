@@ -77,6 +77,83 @@
   margin-right: auto;
 }
 
+/* Mobile: stack header, reduce padding */
+@media (max-width: 640px) {
+  .app--stitch .app-header--stitch {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.75rem 1rem;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .app--stitch .app-header-left {
+    order: 1;
+  }
+
+  .app--stitch .app-nav--stitch {
+    order: 2;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.25rem;
+    margin: 0 -0.25rem;
+  }
+
+  .app--stitch .app-nav--stitch::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .app--stitch .app-nav-link {
+    flex-shrink: 0;
+    font-size: 0.8125rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .app--stitch .app-nav-sep {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+  }
+
+  .app--stitch .app-auth-row--stitch {
+    order: 3;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+  }
+
+  .app--stitch .app-auth-user--compact {
+    font-size: 0.75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 8rem;
+  }
+
+  .app--stitch .app-auth-user .app-auth-role {
+    display: none;
+  }
+
+  .app--stitch .app-avatar {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.75rem;
+  }
+
+  .app--stitch .app-auth-logout {
+    font-size: 0.6875rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app--stitch .app-header--stitch {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .app--stitch .app-title--stitch {
+    font-size: 1.1rem;
+  }
+}
+
 .app--stitch .app-title--stitch {
   font-family: 'Manrope', sans-serif;
   font-size: 1.25rem;
@@ -239,10 +316,18 @@
 .app--dashboard {
   padding: 0.5rem 0.75rem 0.25rem;
   min-height: 100vh;
+  min-height: 100dvh; /* mobile Safari: exclude address bar */
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 640px) {
+  .app--dashboard {
+    padding: 0.4rem 0.5rem 0.2rem;
+  }
 }
 
 .app--dashboard .app-header {
@@ -276,6 +361,22 @@
   margin: 0 auto;
   padding: 0 2rem 2rem;
   width: 100%;
+}
+
+@media (max-width: 640px) {
+  .app--stitch .app-main {
+    padding: 0 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 1rem 0.75rem;
+  }
+
+  .app--stitch .app-main {
+    padding: 0 0.75rem 1rem;
+  }
 }
 
 .app--stitch .app-main--team {
@@ -373,6 +474,21 @@
   box-shadow: 0 12px 40px rgba(16, 27, 48, 0.04);
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .app--stitch .upload-create-project-gate {
+    padding: 1.5rem 1.25rem;
+    border-radius: 1.25rem;
+  }
+
+  .app--stitch .upload-create-project-title {
+    font-size: 1.5rem;
+  }
+
+  .app--stitch .upload-create-project-desc {
+    font-size: 1rem;
+  }
 }
 
 .app--stitch .upload-create-project-gate::before {
@@ -488,6 +604,18 @@
   color: var(--lc-on-surface, #101b30);
   cursor: pointer;
   min-width: 12rem;
+}
+
+@media (max-width: 480px) {
+  .upload-sample-hint {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .upload-sample-select {
+    min-width: 0;
+    width: 100%;
+  }
 }
 
 .upload-sample-select:hover:not(:disabled) {

@@ -21,6 +21,36 @@
   position: relative;
 }
 
+@media (max-width: 480px) {
+  .security-concierge {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    align-items: stretch;
+  }
+
+  .security-concierge-bubble {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 0.875rem 1rem;
+  }
+
+  .security-concierge-fab {
+    width: 3rem;
+    height: 3rem;
+    align-self: flex-end;
+  }
+
+  .security-concierge-fab .material-symbols-outlined {
+    font-size: 1.5rem;
+  }
+
+  .security-concierge-cat-emoji {
+    font-size: 1.5rem;
+  }
+}
+
 .security-concierge-text {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 0.875rem;
