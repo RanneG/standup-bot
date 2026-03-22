@@ -511,6 +511,29 @@
   }
 }
 
+@media (max-width: 640px) {
+  .dashboard-page {
+    padding: 0 0.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: auto;
+  }
+
+  .dashboard-content {
+    overflow: visible;
+  }
+
+  .dashboard-header,
+  .dashboard-tee-banner,
+  .dashboard-archived-banner {
+    flex-wrap: wrap;
+  }
+
+  .dashboard-header-actions {
+    width: 100%;
+  }
+}
+
 .dashboard-no-team-msg {
   padding: 1.75rem;
   background: var(--surface);

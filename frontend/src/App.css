@@ -364,6 +364,15 @@
 @media (max-width: 640px) {
   .app--dashboard {
     padding: 0.4rem 0.5rem 0.2rem;
+    height: auto;
+    min-height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .app--dashboard .app-main {
+    overflow: visible;
+    flex: 0 0 auto;
   }
 }
 
@@ -431,6 +440,21 @@
   padding: 0.75rem 1.5rem;
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;
+}
+
+@media (max-width: 640px) {
+  .upload-btn {
+    min-height: 44px;
+    padding: 0.875rem 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .app-main:not(.app-main--dashboard) {
+    padding-bottom: 5rem;
+  }
 }
 
 .upload-btn:hover {
@@ -615,6 +639,16 @@
   flex-wrap: wrap;
   gap: 0.75rem;
   justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .upload-create-project-actions {
+    flex-direction: column;
+  }
+
+  .upload-create-project-actions .upload-btn {
+    width: 100%;
+  }
 }
 
 .upload-sample-hint {

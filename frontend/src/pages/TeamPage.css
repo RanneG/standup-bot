@@ -8,6 +8,29 @@
   max-width: 48rem;
 }
 
+@media (max-width: 640px) {
+  .team-page,
+  .team-page--wide {
+    max-width: none;
+    width: 100%;
+    padding: 0 0.5rem;
+    box-sizing: border-box;
+  }
+
+  .team-page-demo-panel,
+  .team-page-card {
+    padding: 1rem;
+  }
+
+  .team-page-title {
+    font-size: 1.5rem;
+  }
+
+  .app--stitch .team-page-title {
+    font-size: 1.5rem;
+  }
+}
+
 .team-page--member-join .team-page-card--full {
   max-width: 32rem;
   margin-left: auto;
@@ -95,6 +118,7 @@
 .team-page-split {
   display: grid;
   gap: 1.25rem;
+  grid-template-columns: 1fr;
 }
 
 @media (min-width: 640px) {
@@ -578,7 +602,9 @@
   border-color: var(--lc-outline-variant);
 }
 
-.app--stitch .team-page-split {
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+@media (min-width: 640px) {
+  .app--stitch .team-page-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
 }
