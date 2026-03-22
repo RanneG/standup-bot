@@ -80,6 +80,7 @@ export default function SecurityConcierge() {
   const [decisionsSubstep, setDecisionsSubstep] = useState(0)
   const [skipped, setSkipped] = useState(() => getSkipDemo())
   const [showWhyLogin, setShowWhyLogin] = useState(false)
+  const [expanded, setExpanded] = useState(true)
 
   const isLogin = pathname === '/login' || pathname.startsWith('/login')
 
@@ -142,7 +143,8 @@ export default function SecurityConcierge() {
   const displayMessage = isLogin && showWhyLogin ? whyLoginMessage : message
 
   return (
-    <div className="security-concierge" aria-label="Security concierge assistant">
+    <div className={`security-concierge ${expanded ? 'security-concierge--expanded' : 'security-concierge--minimized'}`} aria-label="Security concierge assistant">
+      {expanded && (
       <div className="security-concierge-bubble">
         <p className="security-concierge-text">{displayMessage}</p>
         {isLogin && showWhyLogin && (
@@ -180,11 +182,14 @@ export default function SecurityConcierge() {
           </button>
         </div>
       </div>
+      )}
       <button
         type="button"
         className="security-concierge-fab security-concierge-fab--cat"
-        aria-label="Demo guide — your security concierge"
-        title="Demo guide"
+        aria-label={expanded ? 'Minimize helper' : 'Show helper'}
+        aria-expanded={expanded}
+        title={expanded ? 'Minimize' : 'Show guide'}
+        onClick={() => setExpanded((e) => !e)}
       >
         <span className="security-concierge-cat-emoji" aria-hidden>🐱</span>
       </button>

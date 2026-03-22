@@ -102,6 +102,15 @@ function RequireHost({ children }) {
   return children
 }
 
+/** Map pathname to nav value for mobile dropdown */
+function getNavValue(pathname) {
+  if (pathname.startsWith('/team')) return '/team'
+  if (pathname.startsWith('/upload')) return '/upload'
+  if (pathname.startsWith('/dashboard')) return '/dashboard'
+  if (pathname.startsWith('/tee')) return '/tee'
+  return '/team'
+}
+
 /** Participant shell: Team | Upload | Dashboard — routes `/team`, `/upload`, `/dashboard`. */
 function ParticipantLayout() {
   const { pathname } = useLocation()
@@ -145,7 +154,7 @@ function ParticipantLayout() {
             </Link>
           )}
         </div>
-        <nav className="app-nav app-nav--stitch" aria-label="Main" data-tour="nav">
+        <nav className="app-nav app-nav--stitch app-nav--links" aria-label="Main" data-tour="nav">
           <NavLink to="/team" className={navLinkClass} end data-tour="team-create">
             Team
           </NavLink>
@@ -162,6 +171,17 @@ function ParticipantLayout() {
             TEE
           </NavLink>
         </nav>
+        <select
+          className="app-nav app-nav--dropdown"
+          aria-label="Navigate to page"
+          value={getNavValue(pathname)}
+          onChange={(e) => navigate(e.target.value)}
+        >
+          <option value="/team">Team</option>
+          <option value="/upload">Upload</option>
+          <option value="/dashboard">Dashboard</option>
+          <option value="/tee">TEE</option>
+        </select>
         {auth.gateCompleted && (
           <div className="app-auth-row app-auth-row--stitch">
             <span className="app-auth-user app-auth-user--compact" title={auth.email || auth.displayName || ''}>

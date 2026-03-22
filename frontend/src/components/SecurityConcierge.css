@@ -142,7 +142,7 @@
   background: linear-gradient(135deg, #00478d, #005eb8);
   color: white;
   border: none;
-  cursor: default;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
